@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { animated, useSpring, useTransition } from 'react-spring'
 import styled from 'styled-components'
-import { Input } from '../Form'
-import { TextContainer } from '../Home'
+import { Input } from './Form'
+import { TextContainer } from './Signup'
 
 const HomeContainer = styled(animated.div)`
    height: 100%;
