@@ -1,0 +1,6 @@
+__tests__
+.vscode
+android
+ios
+node_modules
+template

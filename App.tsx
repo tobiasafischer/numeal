@@ -8,28 +8,16 @@
 
 import React from 'react'
 import type { Node } from 'react'
-import {
-   SafeAreaView,
-   ScrollView,
-   StatusBar,
-   StyleSheet,
-   Text,
-   useColorScheme,
-   View,
-} from 'react-native'
+import { useColorScheme, View } from 'react-native'
 
-import {
-   Colors,
-   DebugInstructions,
-   Header,
-   LearnMoreLinks,
-   ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen'
+import { Colors } from 'react-native/Libraries/NewAppScreen'
 import styled from 'styled-components/native'
+import Navbar from './components/Navbar'
+import Home from './components/Home/Home'
 
-const Container = styled.view`
+const Container = styled.View`
    height: 100%;
-   margin-top: 35px;
+   margin-top: 45px;
    width: 100%;
    display: flex;
 `

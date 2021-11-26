@@ -1,25 +1,24 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from 'styled-components/native'
+import { Text } from 'react-native'
 
-const Container = styled.div`
+const Container = styled.View`
    height: 35px;
-   position: fixed;
-   top: 0;
+   position: static;
+   top: 45px;
    left: 0;
    width: 100%;
-   background-color: white;
-   border-bottom: 1px solid #c4c4c4;
    display: flex;
    align-items: center;
    z-index: 9999999;
-   box-shadow: 0px 2px 10px rgb(0 0 0 / 5%);
 `
 
-const Logo = styled.div`
+const Logo = styled.Text`
    color: #333333;
    position: absolute;
-   left: 16px;
-   font-weight: 450;
+   left: 20px;
+   font-weight: 300;
+   font-size: 24px;
 `
 
 const Navbar: React.FC = () => (

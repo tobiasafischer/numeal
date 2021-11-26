@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components/native'
+import { Text, View, Image } from 'react-native'
 
 const Container = styled.View`
    border-radius: 4px;
-   box-shadow: 0 4px 5px 0 rgb(0 0 0 / 20%);
    background-color: white;
    width: 200px;
    height: 100px;
@@ -23,14 +23,14 @@ const Container = styled.View`
    &:last-child {
       margin-right: 0px;
    }
-
-   img {
-      object-fit: cover;
-      width: 200px;
-      border-radius: 4px;
-      height: 100px;
-   }
 `
+
+const PreviewImage = styled.Image`
+   width: 200px;
+   border-radius: 4px;
+   height: 100px;
+`
+
 const Overlay = styled.View`
    border-radius: 4px;
    position: absolute;
@@ -45,7 +45,7 @@ const Overlay = styled.View`
    align-items: center;
    background: #333;
    width: 100%;
-   opacity: 0.4;
+   opacity: 0.5;
 `
 
 const TextContainer = styled.View`
@@ -54,33 +54,34 @@ const TextContainer = styled.View`
    left: 0;
    display: flex;
    justify-content: flex-start;
+   flex-direction: row;
    align-items: center;
    height: 30px;
-   width: auto;
+   width: 100%;
    z-index: 1;
-   h2 {
-      margin: 0px 3px 0px 10px;
-      color: white;
-      font-size: 14px;
-   }
-   p {
-      color: white;
-      font-size: 12px;
-   }
+`
+
+const H2 = styled.Text`
+   margin: 0px 3px 0px 10px;
+   color: white;
+   z-index: 1;
+   font-size: 13px;
+   font-weight: 600;
 `
 
 const TrendingCard: React.FC = () => {
    return (
       <Container>
          <TextContainer>
-            <h2>pizza </h2>
-            <p>{' - author name'}</p>
+            <H2>pizza - author name</H2>
+            <Overlay />
          </TextContainer>
 
-         <Overlay />
-         <img
+         <PreviewImage
             alt="pizza"
-            src="https://www.simplyrecipes.com/thmb/qu-AslBeskzh_HG9H0dQAmcrdLQ=/648x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2019__09__easy-pepperoni-pizza-lead-4-82c60893fcad4ade906a8a9f59b8da9d.jpg"
+            source={{
+               uri: 'https://food.fnr.sndimg.com/content/dam/images/food/fullset/2020/03/10/0/FNK_BEST-CHICKEN-AND-RICE-H_s4x3.jpg.rend.hgtvcom.826.620.suffix/1583851621211.jpeg',
+            }}
          />
       </Container>
    )

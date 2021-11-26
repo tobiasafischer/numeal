@@ -1,13 +1,26 @@
-module.exports = {
-   root: true,
+module export = {
+   env: {
+      es6: true,
+      node: true,
+      jest: true,
+   },
    extends: [
-      '@react-native-community',
-      'airbnb-typescript',
-      'prettier',
-      'prettier/@typescript-eslint',
-      'prettier/react',
+      'eslint:recommended',
+      'plugin:react/recommended',
+      'plugin:react-hooks/recommended',
+      'plugin:@typescript-eslint/eslint-recommended',
+      'plugin:@typescript-eslint/recommended',
+      'plugin:@typescript-eslint/recommended-requiring-type-checking',
    ],
+   parserOptions: {
+      project: './tsconfig.json',
+   },
+   plugins: ['react', 'react-hooks', '@typescript-eslint'],
    rules: {
+      '@typescript-eslint/no-unsafe-return': 'off',
+      '@typescript-eslint/no-unsafe-member-access': 'off',
+      '@typescript-eslint/no-unsafe-call': 'off',
+      '@typescript-eslint/no-unsafe-assignment': 'off',
       'no-restricted-exports': 'off',
       'react/function-component-definition': 'off',
       'function-paren-newline': 'off',
@@ -47,5 +60,10 @@ module.exports = {
             tsx: 'never',
          },
       ],
+   },
+   settings: {
+      react: {
+         version: 'detect',
+      },
    },
 }

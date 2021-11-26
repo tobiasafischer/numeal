@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/native'
 import TrendingCard from './TrendingCard'
+import { ScrollView, Text } from 'react-native'
 
 const Container = styled.View`
    display: flex;
@@ -16,36 +17,40 @@ const Header = styled.View`
    height: auto;
    box-sizing: border-box;
    padding: 20px 20px 10px 0px;
-   h2 {
-      font-size: 20px;
-      color: #333;
-      font-weight: 400;
-      margin: 0;
-   }
 `
+
+const H2 = styled.Text`
+   font-size: 16px;
+   color: #333;
+   font-weight: 300;
+   margin: 0;
+`
+
 const Body = styled.View`
    width: 100%;
    height: 100%;
    display: flex;
    justify-content: flex-start;
-   overflow-x: scroll;
-   -ms-overflow-style: none; /* IE and Edge */
-   scrollbar-height: none; /* Firefox */
-   &::-webkit-scrollbar {
-      display: none;
-   }
+   flex-direction: row;
 `
 const TrendingCards: React.FC = () => {
    return (
       <Container>
          <Header>
-            <h2>trending recipes</h2>
+            <H2>trending recipes</H2>
          </Header>
-         <Body>
-            <TrendingCard />
-            <TrendingCard />
-            <TrendingCard />
-         </Body>
+         <ScrollView
+            scrollEnabled={true}
+            centerContent={true}
+            showsHorizontalScrollIndicator={false}
+            showsVerticalHorizontalScrollIndicator={false}
+         >
+            <Body>
+               <TrendingCard />
+               <TrendingCard />
+               <TrendingCard />
+            </Body>
+         </ScrollView>
       </Container>
    )
 }
