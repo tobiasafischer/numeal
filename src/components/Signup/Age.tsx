@@ -52,7 +52,14 @@ const InputContainer = styled.div`
    }
 `
 
-const Age: React.FC = ({ handleBackward, handleForward, page, handleSignup }) => {
+type Props = {
+   handleBackward: () => void
+   handleForward: () => void
+   page: number
+   handleSignup: () => void
+}
+
+const Age: React.FC<Props> = ({ handleBackward, handleForward, page, handleSignup }) => {
    const [content, setContent] = useState('')
 
    const handleClick = () => {

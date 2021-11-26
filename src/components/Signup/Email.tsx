@@ -46,7 +46,13 @@ const InputContainer = styled.div`
    width: 100%;
 `
 
-const Email: React.FC = ({ handleBackward, page, handleForward }) => {
+type Props = {
+   handleBackward: () => void
+   handleForward: () => void
+   page: number
+}
+
+const Email: React.FC<Props> = ({ handleBackward, page, handleForward }) => {
    const [content, setContent] = useState('')
 
    const homeStyle = useSpring({

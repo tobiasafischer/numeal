@@ -17,6 +17,8 @@ module.exports = {
    },
    plugins: ['react', '@typescript-eslint'],
    rules: {
+      'no-restricted-exports': 'off',
+      'react/function-component-definition': 'off',
       'function-paren-newline': 'off',
       'operator-linebreak': 'off',
       'implicit-arrow-linebreak': 'off',

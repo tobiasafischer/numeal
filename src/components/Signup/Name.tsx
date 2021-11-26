@@ -46,17 +46,25 @@ const InputContainer = styled.div`
    width: 100%;
 `
 
-const Name: React.FC = ({ handleBackward, page, handleForward }) => {
+type Props = {
+   handleBackward: () => void
+   handleForward: () => void
+   page: number
+}
+
+const Name: React.FC<Props> = ({ handleBackward, page, handleForward }) => {
    const [content, setContent] = useState('')
 
    const homeStyle = useSpring({
       opacity: page === 1 ? 1 : 0,
       display: page === 1 ? 'flex' : 'none',
+      transform: page === 1 ? 'translateX(0%)' : 'translateX(-100%)',
    })
 
    const buttonStyle = useSpring({
       transform: page === 1 ? 'translateX(4px)' : 'translateX(-25px)',
    })
+
    const forwardButtonStyle = useSpring({
       transform: content.length > 0 ? 'translateX(10px)' : 'translateX(5px)',
    })

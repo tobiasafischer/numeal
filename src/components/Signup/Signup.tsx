@@ -40,7 +40,11 @@ export const TextContainer = styled(animated.div)`
    }
 `
 
-const Signup: React.FC = ({ handleSignup }) => {
+type Props = {
+   handleSignup: () => void
+}
+
+const Signup: React.FC<Props> = ({ handleSignup }) => {
    const [page, setPage] = useState(0)
 
    const handleForward = () => setPage((prev) => prev + 1)

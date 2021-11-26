@@ -1,13 +1,21 @@
+import { useSpring, animated } from 'react-spring'
+import styled from 'styled-components'
 import React, { useState, useEffect } from 'react'
 import Signup from './components/Signup'
 import './App.css'
 import Navbar from './components/Navbar'
-import { useSpring } from 'react-spring'
 import Home from './components/Home/Home'
+
+const Container = styled(animated.div)`
+   height: 100%;
+   margin-top: 35px;
+   width: 100%;
+   display: flex;
+`
 
 const App: React.FC = () => {
    const [show, setShow] = useState(false)
-   const [finishSignup, setFinishSignup] = useState(false)
+   const [finishSignup, setFinishSignup] = useState(true)
    const handleClick = () => setShow(!show)
    const handleSignup = () => {
       setFinishSignup(true)
@@ -27,9 +35,13 @@ const App: React.FC = () => {
 
    return (
       <div className="App">
-         <Navbar show={show} handleClick={handleClick} />
-         <Signup style={signupStyle} handleSignup={handleSignup} />
-         <Home style={style} />
+         <Navbar />
+         <Container style={signupStyle}>
+            <Signup handleSignup={handleSignup} />
+         </Container>
+         <Container style={style}>
+            <Home />
+         </Container>
       </div>
    )
 }
