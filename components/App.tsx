@@ -12,8 +12,9 @@ import { useColorScheme, View } from 'react-native'
 
 import { Colors } from 'react-native/Libraries/NewAppScreen'
 import styled from 'styled-components/native'
-import Navbar from './components/Navbar'
-import Home from './components/Home/Home'
+import Navbar from './Navbar'
+import Home from './Home/Home'
+import { Text } from 'react-native'
 
 const Container = styled.View`
    height: 100%;
@@ -24,12 +25,13 @@ const Container = styled.View`
 
 const App: () => Node = () => {
    const isDarkMode = useColorScheme() === 'dark'
-
    const backgroundStyle = {
       backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
    }
+
    return (
       <View className="App">
+         <Text>a</Text>
          <Navbar />
          <Container>
             <Home />

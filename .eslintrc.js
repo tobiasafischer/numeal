@@ -1,8 +1,9 @@
-module export = {
+module.exports = {
    env: {
       es6: true,
       node: true,
       jest: true,
+      browser: true,
    },
    extends: [
       'eslint:recommended',
@@ -12,10 +13,27 @@ module export = {
       'plugin:@typescript-eslint/recommended',
       'plugin:@typescript-eslint/recommended-requiring-type-checking',
    ],
+   overrides: [
+      {
+         parser: '@typescript-eslint/parser',
+         plugins: ['react', 'react-hooks', '@typescript-eslint', 'import'],
+         files: ['*.ts', '*.tsx'], // Your TypeScript files extension
+         parserOptions: {
+            project: ['./tsconfig.json'], // Specify it only for TypeScript files
+         },
+      },
+   ],
    parserOptions: {
-      project: './tsconfig.json',
+      ecmaVersion: 6,
+      sourceType: 'module',
+      ecmaFeatures: {
+         modules: true,
+         jsx: true,
+         experimentalDecorators: true,
+         legacyDecorators: true,
+      },
+      project: ['./tsconfig.json'], // Specify it only for TypeScript files
    },
-   plugins: ['react', 'react-hooks', '@typescript-eslint'],
    rules: {
       '@typescript-eslint/no-unsafe-return': 'off',
       '@typescript-eslint/no-unsafe-member-access': 'off',
@@ -50,16 +68,6 @@ module export = {
       'dot-notation': 'off',
       'no-console': 'warn',
       semi: 'off',
-      'import/extensions': [
-         'error',
-         'ignorePackages',
-         {
-            js: 'never',
-            jsx: 'never',
-            ts: 'never',
-            tsx: 'never',
-         },
-      ],
    },
    settings: {
       react: {

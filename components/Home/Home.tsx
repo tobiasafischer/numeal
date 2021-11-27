@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components/native'
-import TrendingCards from './components/Trending/TrendingCards'
+import TrendingCards from './components/Trending'
 import Featured from './components/Featured/Featured'
 
 const Container = styled.View`
@@ -14,7 +14,6 @@ const Container = styled.View`
 const ContentContainer = styled.View`
    width: 100%;
    height: 100%;
-
    box-sizing: border-box;
    padding: 20px 20px;
 `

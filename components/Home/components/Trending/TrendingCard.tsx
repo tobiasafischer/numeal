@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components/native'
-import { Text, View, Image } from 'react-native'
 
 const Container = styled.View`
    border-radius: 4px;
@@ -9,20 +8,12 @@ const Container = styled.View`
    height: 100px;
    z-index: 9;
    position: relative;
-   margin-right: 10px;
-   margin-left: 10px;
+   margin-right: 20px;
    border-radius: 4px;
    -webkit-background-size: cover;
    -moz-background-size: cover;
    -o-background-size: cover;
    background-size: cover;
-
-   &:first-child {
-      margin-left: 0px;
-   }
-   &:last-child {
-      margin-right: 0px;
-   }
 `
 
 const PreviewImage = styled.Image`

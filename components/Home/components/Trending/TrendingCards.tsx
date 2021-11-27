@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/native'
 import TrendingCard from './TrendingCard'
-import { ScrollView, Text } from 'react-native'
+import { ScrollView } from 'react-native'
 
 const Container = styled.View`
    display: flex;

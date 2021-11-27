@@ -4,3 +4,7 @@ android
 ios
 node_modules
 template
+babel.config.js
+metro.config.js
+template.config.js
+.eslintrc.js
