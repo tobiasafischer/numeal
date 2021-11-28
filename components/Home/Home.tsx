@@ -1,11 +1,13 @@
 import React from 'react'
+import { ScrollView } from 'react-native'
 import styled from 'styled-components/native'
 import TrendingCards from './components/Trending'
 import Featured from './components/Featured/Featured'
+import Feed from './components/Feed/Feed'
 
 const Container = styled.View`
    width: 100%;
-   height: 100%;
+   height: auto;
    justify-content: flex-start;
    align-items: center;
    flex-direction: column;
@@ -19,12 +21,18 @@ const ContentContainer = styled.View`
 
 const Home: React.FC = () => {
    return (
-      <Container>
-         <Featured />
-         <ContentContainer>
-            <TrendingCards />
-         </ContentContainer>
-      </Container>
+      <ScrollView
+         showsHorizontalScrollIndicator={false}
+         showsVerticalHorizontalScrollIndicator={false}
+      >
+         <Container>
+            <Featured />
+            <ContentContainer>
+               <TrendingCards />
+               <Feed />
+            </ContentContainer>
+         </Container>
+      </ScrollView>
    )
 }
 
