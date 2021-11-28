@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/native'
-import TrendingCard from './TrendingCard'
 import { ScrollView } from 'react-native'
+import TrendingCard from './TrendingCard'
 
 const Container = styled.View`
    display: flex;
@@ -15,7 +15,6 @@ const Container = styled.View`
 const Header = styled.View`
    width: 100%;
    height: auto;
-   box-sizing: border-box;
    padding: 20px 20px 10px 0px;
 `
 
@@ -40,8 +39,6 @@ const TrendingCards: React.FC = () => {
             <H2>trending recipes</H2>
          </Header>
          <ScrollView
-            scrollEnabled={true}
-            centerContent={true}
             showsHorizontalScrollIndicator={false}
             showsVerticalHorizontalScrollIndicator={false}
          >

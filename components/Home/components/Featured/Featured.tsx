@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components/native'
-import LinearGradient from 'react-native-linear-gradient'
+import { LinearGradient } from 'expo-linear-gradient'
 
 const Container = styled.View`
    width: 100%;
@@ -8,10 +8,6 @@ const Container = styled.View`
    position: relative;
    top: 0;
    left: 0;
-   -webkit-background-size: cover;
-   -moz-background-size: cover;
-   -o-background-size: cover;
-   background-size: cover;
    margin-bottom: -20px;
 `
 const BigImage = styled.Image`

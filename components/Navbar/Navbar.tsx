@@ -1,14 +1,14 @@
 import React from 'react'
 import styled from 'styled-components/native'
-import LinearGradient from 'react-native-linear-gradient'
 
 const Container = styled.View`
    height: 35px;
-   position: static;
-   top: 35px;
+   position: relative;
+   top: 43px;
    left: 0;
    width: 100%;
    display: flex;
+   margin-bottom: 50px;
    align-items: center;
    z-index: 9999999;
 `

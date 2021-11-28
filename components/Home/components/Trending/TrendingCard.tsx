@@ -10,10 +10,6 @@ const Container = styled.View`
    position: relative;
    margin-right: 20px;
    border-radius: 4px;
-   -webkit-background-size: cover;
-   -moz-background-size: cover;
-   -o-background-size: cover;
-   background-size: cover;
 `
 
 const PreviewImage = styled.Image`
@@ -31,7 +27,6 @@ const Overlay = styled.View`
    height: 30px;
    display: flex;
    justify-content: flex-start;
-   box-sizing: border-box;
    padding: 5px 10px;
    align-items: center;
    background: #333;

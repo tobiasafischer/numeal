@@ -1,40 +1,29 @@
 module.exports = {
    env: {
-      es6: true,
-      node: true,
-      jest: true,
       browser: true,
+      es2021: true,
    },
-   extends: [
-      'eslint:recommended',
-      'plugin:react/recommended',
-      'plugin:react-hooks/recommended',
-      'plugin:@typescript-eslint/eslint-recommended',
-      'plugin:@typescript-eslint/recommended',
-      'plugin:@typescript-eslint/recommended-requiring-type-checking',
-   ],
-   overrides: [
-      {
-         parser: '@typescript-eslint/parser',
-         plugins: ['react', 'react-hooks', '@typescript-eslint', 'import'],
-         files: ['*.ts', '*.tsx'], // Your TypeScript files extension
-         parserOptions: {
-            project: ['./tsconfig.json'], // Specify it only for TypeScript files
+   extends: ['plugin:react/recommended', 'airbnb'],
+   parser: '@typescript-eslint/parser',
+   parserOptions: {
+      ecmaFeatures: {
+         jsx: true,
+      },
+      ecmaVersion: 13,
+      sourceType: 'module',
+   },
+   settings: {
+      'import/resolver': {
+         node: {
+            extensions: ['.js', '.jsx', '.ts', '.tsx'],
+            moduleDirectory: ['node_modules', 'src/'],
          },
       },
-   ],
-   parserOptions: {
-      ecmaVersion: 6,
-      sourceType: 'module',
-      ecmaFeatures: {
-         modules: true,
-         jsx: true,
-         experimentalDecorators: true,
-         legacyDecorators: true,
-      },
-      project: ['./tsconfig.json'], // Specify it only for TypeScript files
    },
+   plugins: ['react', '@typescript-eslint'],
    rules: {
+      'react/no-unstable-nested-components': 'off',
+      'import/extensions': 'off',
       '@typescript-eslint/no-unsafe-return': 'off',
       '@typescript-eslint/no-unsafe-member-access': 'off',
       '@typescript-eslint/no-unsafe-call': 'off',
@@ -68,10 +57,5 @@ module.exports = {
       'dot-notation': 'off',
       'no-console': 'warn',
       semi: 'off',
-   },
-   settings: {
-      react: {
-         version: 'detect',
-      },
    },
 }
