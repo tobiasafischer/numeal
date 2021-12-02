@@ -9,11 +9,12 @@ const Container = styled.View`
    justify-content: flex-start;
    align-items: center;
    flex-direction: column;
-   margin-top: 10px;
 `
 const Feed: React.FC = () => {
    return (
       <Container>
+         <FeedItem />
+         <FeedItem />
          <FeedItem />
          <FeedItem />
          <FeedItem />
