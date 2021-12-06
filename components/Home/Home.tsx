@@ -1,7 +1,7 @@
 import React from 'react'
 import { ScrollView } from 'react-native'
 import styled from 'styled-components/native'
-import TrendingCards from './components/Trending'
+import TrendingCards, { TrendingCard } from './components/Trending'
 import Featured from './components/Featured/Featured'
 import Feed from './components/Feed/Feed'
 
@@ -24,11 +24,18 @@ const Home: React.FC = () => {
       <ScrollView
          showsHorizontalScrollIndicator={false}
          showsVerticalHorizontalScrollIndicator={false}
+         directionalLockEnabled={true}
       >
          <Container>
             <Featured />
             <ContentContainer>
-               <TrendingCards />
+               <TrendingCards title="trending recipes">
+                  <TrendingCard />
+                  <TrendingCard />
+                  <TrendingCard />
+                  <TrendingCard />
+                  <TrendingCard />
+               </TrendingCards>
                <Feed />
             </ContentContainer>
          </Container>

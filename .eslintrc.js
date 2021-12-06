@@ -22,6 +22,7 @@ module.exports = {
    },
    plugins: ['react', '@typescript-eslint'],
    rules: {
+      'react/jsx-boolean-value': 'off',
       'react/no-unstable-nested-components': 'off',
       'import/extensions': 'off',
       '@typescript-eslint/no-unsafe-return': 'off',

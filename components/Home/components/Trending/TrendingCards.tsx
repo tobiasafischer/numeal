@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components/native'
 import { ScrollView } from 'react-native'
-import TrendingCard from './TrendingCard'
 
 const Container = styled.View`
    display: flex;
@@ -32,21 +31,18 @@ const Body = styled.View`
    justify-content: flex-start;
    flex-direction: row;
 `
-const TrendingCards: React.FC = () => {
+const TrendingCards: React.FC<{ title: string }> = ({ title, children }) => {
    return (
       <Container>
          <Header>
-            <H2>trending recipes</H2>
+            <H2>{title}</H2>
          </Header>
          <ScrollView
             showsHorizontalScrollIndicator={false}
             showsVerticalHorizontalScrollIndicator={false}
+            directionalLockEnabled={true}
          >
-            <Body>
-               <TrendingCard />
-               <TrendingCard />
-               <TrendingCard />
-            </Body>
+            <Body>{children}</Body>
          </ScrollView>
       </Container>
    )
