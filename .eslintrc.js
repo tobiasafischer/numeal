@@ -22,6 +22,8 @@ module.exports = {
    },
    plugins: ['react', '@typescript-eslint'],
    rules: {
+      'global-require': 'off',
+      'import/prefer-default-export': 'off',
       'react/jsx-boolean-value': 'off',
       'react/no-unstable-nested-components': 'off',
       'import/extensions': 'off',
