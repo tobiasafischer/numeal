@@ -37,11 +37,6 @@ interface RecipeCardProps {
 	recipe: RecipeProps
 }
 
-interface Item {
-	id: string
-	text: string
-}
-
 const StyledInput = styled(Input)`
 	margin: 5px;
 `
@@ -59,6 +54,21 @@ const StyledLayout = styled(ListItem)`
 	box-sizing: border-box;
 	margin: 5px;
 	max-inline-size: 50ch;
+`
+
+const AddButton = styled(TouchableOpacity)`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-sizing: border-box;
+
+	min-height: 44px;
+	border: 1px solid #e4e9f2;
+	background-color: #f7f9fc;
+	padding-vertical: 7px;
+	padding-left: 20px;
+	padding-right: 30px;
+	margin: 5px;
 `
 
 const Title = styled(Text)`
@@ -99,16 +109,18 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
 		handleFieldChange(fieldName, newArray)
 	}
 
-	const handleFieldChange = (fieldName: keyof RecipeProps, value: string | number | string[]) => {
+	const addField = (fieldName: keyof RecipeProps) => {
+		const length = (editedRecipe[fieldName] as any[]).length
+		handleArrayChange(fieldName, length, '')
+	}
+
+	const handleFieldChange = (fieldName: keyof RecipeProps, value: string | number | string[]) =>
 		setEditedRecipe((prevRecipe) => ({
 			...prevRecipe,
 			[fieldName]: value,
 		}))
-	}
 
-	const startEditingField = (fieldName: keyof RecipeProps) => {
-		setEditingField(fieldName)
-	}
+	const startEditingField = (fieldName: keyof RecipeProps) => setEditingField(fieldName)
 
 	const renderItem = (label: string, fieldName: keyof RecipeProps): React.ReactElement => {
 		if (editingField === fieldName) {
@@ -205,11 +217,13 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
 					index,
 				),
 			)}
-
+			<AddButton onPress={() => addField('ingredients')}>
+				<CustomCloseButtonIcon name='add' />
+			</AddButton>
 			<Title>Instructions:</Title>
 			{editedRecipe.instructions_list.map((instruction, index) => {
 				const pattern = /step\s+(\d+)/gi
-				if (!instruction.match(pattern)) {
+				if (!instruction.length || !instruction.match(pattern)) {
 					return renderIngredientsInstructions(
 						instruction,
 						instruction,
@@ -220,6 +234,9 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
 				}
 				return <></>
 			})}
+			<AddButton onPress={() => addField('instructions_list')}>
+				<CustomCloseButtonIcon name='add' />
+			</AddButton>
 		</Layout>
 	)
 }
